@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "configurePresets": [
+    {
+      "name": "win10_msvc_x64",
+      "displayName": "win10 msvc x64",
+      "description": "default windows",
+      "generator": "Ninja",
+      "architecture": {
+        
+        "value": "x64",
+        "strategy": "external"
+      },
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}"
+      },
+      "vendor": { "microsoft.com/VisualStudioSettings/CMake/1.0": { "hostOS": "Windows" } }
+    },
+    {
+      "name": "linux_x64",
+      "displayName": "linux x64 gcc11",
+      "description": "default linux",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/install/${presetName}"
+      },
+      "vendor": {
+        "microsoft.com/VisualStudioSettings/CMake/1.0": { "hostOS": ["Linux"] },
+        "microsoft.com/VisualStudioRemoteSettings/CMake/1.0": { "sourceDir": "$env{HOME}/.vs/$ms{projectDirName}" }
+      }
+    }
+  ]
+}
